@@ -1,0 +1,123 @@
+<style media="screen">
+  body {
+    background-color: #3B6B36;
+  }
+</style>
+<img ng-hide="qtd" src="css/img/smile.svg" style="width: 400px; height: 400px; position: absolute; left: 50%; top: 50%; margin-left: -200px; margin-top: -200px;"/>
+
+<div ng-show="qtd" ng-repeat="i in [] | range:qtd" class="box">
+  <h1>{{ pedidos[i].REQ_SOLICITANTE }}</h1>
+  <h2>{{ pedidos[i].REQ_MATRICULA }}</h2>
+  <h3>{{ pedidos[i].REQ_DATA_SAIDA | dateFormat }} para {{ pedidos[i].REQ_DESTINO }}</h3>
+  <table id="echo 'info'.$REQ_COD;" class="infobox" ng-show="toggle">
+    <tr ng-show="pedidos[i].REQ_SOLICITANTE">
+      <td>Solicitante</td>
+      <td>
+        {{ pedidos[i].REQ_SOLICITANTE }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_MATRICULA">
+      <td>Matrícula</td>
+      <td>
+        {{ pedidos[i].REQ_MATRICULA }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_EMAIL">
+      <td>E-mail</td>
+      <td>
+        {{ pedidos[i].REQ_EMAIL }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_CELULAR">
+      <td>Celular</td>
+      <td>
+        {{ pedidos[i].REQ_CELULAR | cellFormat }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_SETOR">
+      <td>Setor</td>
+      <td>
+        {{ pedidos[i].REQ_SETOR }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_TELEFONE">
+      <td>Telefone / Ramal</td>
+      <td>
+        {{ pedidos[i].REQ_TELEFONE | cellFormat }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_CONTATO">
+      <td>Pessoa para Contato</td>
+      <td>
+        {{ pedidos[i].REQ_CONTATO }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_CONTATO_CEL">
+      <td>Celular</td>
+      <td>
+        {{ pedidos[i].REQ_CONTATO_CEL | cellFormat }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_DESTINO">
+      <td>Destino</td>
+      <td>
+        {{ pedidos[i].REQ_DESTINO }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_PASSAGEIROS">
+      <td>Passageiros</td>
+      <td>
+        {{ pedidos[i].REQ_PASSAGEIROS }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_MOTIVO">
+      <td>Motivo</td>
+      <td>
+        {{ pedidos[i].REQ_MOTIVO }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_ROTEIRO">
+      <td>Roteiro</td>
+      <td>
+        {{ pedidos[i].REQ_ROTEIRO }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_DATA_SAIDA">
+      <td>Data de Saída</td>
+      <td>
+        {{ pedidos[i].REQ_DATA_SAIDA | dateFormat }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_LOCAL_SAIDA">
+      <td>Local de Saída</td>
+      <td>
+        {{ pedidos[i].REQ_LOCAL_SAIDA }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_DATA_RETORNO">
+      <td>Data de Retorno</td>
+      <td>
+        {{ pedidos[i].REQ_DATA_RETORNO | dateFormat }}
+      </td>
+    </tr>
+    <tr ng-show="pedidos[i].REQ_LOCAL_RETORNO">
+      <td>Local de Retorno</td>
+      <td>
+        {{ pedidos[i].REQ_LOCAL_RETORNO }}
+      </td>
+    </tr>
+  </table>
+
+  <div class="infobox" ng-show="recusa">
+    <label for="justificativa">Esclarecimento</label>
+    <textarea required autocomplete="off" rows="3" id="justificativa" name="justificativa" type="text" maxlength="140" placeholder="Explique em até 140 caracteres o Motivo da Recusa" ng-model="pedidos[i].justificativa"></textarea>
+    <br>
+    <button ng-click="sendStatus(-1, pedidos[i]._id, justificativa)" ng-hide="!pedidos[i].justificativa.length">
+      Enviar Recusa
+    </button>
+  </div>
+
+  <button style="float: right; background: #ccc" ng-click="toggle = !toggle; recusa = 0">Info</button>
+  <button ng-click="sendStatus(1, pedidos[i]._id)">Aceitar</button>
+  <button ng-click="recusa = !recusa; toggle = false">Recusar</button>
+</div>

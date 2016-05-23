@@ -1,0 +1,61 @@
+<form id="frm" name="frm" method="post" ng-submit="sendData()">
+  <section id="4">
+
+    <aside>
+      <h2>Passageiros</h2>
+      <!-- <a ng-href="#3" ng-click="setData()">↼</a> -->
+      <!-- &#8636; -->
+      <a></a>
+    </aside>
+
+    <div id="ps" class="ng-cloak">
+      <h3 ng-hide="pedido.REQ_PASSAGEIROS">Informe na sessão <a ng-href="#2" ng-click="setData()">Viagem</a> a quantidade de passageiros</h3>
+
+      <table ng-show="pedido.REQ_PASSAGEIROS">
+        <thead>
+          <tr>
+            <th>
+              <label for="NOME">Nome</label>
+            </th>
+            <th>
+              <label for="MATRICULA">Matrícula / SIAPE</label>
+            </th>
+            <th>
+              <label for="CPF">CPF</label>
+            </th>
+            <th>
+              <label for="CELULAR">Contato</label>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="i in [] | range:pedido.REQ_PASSAGEIROS">
+            <td>
+              <input required autocomplete="off" id="NOME" name="NOME" type="text" maxlength="50" pattern="[A-Za-zÀ-ú\s]+$" ng-model="passageiros.NOME[i]" ng-init="passageiros.NOME[0] = pedido.REQ_SOLICITANTE">
+            </td>
+            <td>
+              <input required autocomplete="off" name="MATRICULA" type="number" min="0" id="MATRICULA" pattern="[0-9]+$" ng-model="passageiros.MATRICULA[i]" ng-init="passageiros.MATRICULA[0] = pedido.REQ_MATRICULA"/>
+            </td>
+            <td>
+              <input required autocomplete="off" name="CPF" type="text" id="CPF" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" ui-br-cpf-mask ng-model="passageiros.CPF[i]"/>
+            </td>
+            <td>
+              <input required autocomplete="off" name="CELULAR" type="text" id="CELULAR" maxlength="15" pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}$" ui-br-phone-number ng-model="passageiros.CELULAR[i]" ng-init="passageiros.CELULAR[0] = pedido.REQ_CELULAR"/>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <input id="captcha" name="captcha" type="text" style="display: none" />
+    <br>
+    <button class="button" type="submit" ng-hide="!frm.$valid">Enviar</button>
+    <h3 ng-show="frm.CPF.$invalid && frm.CPF.$dirty">Aparentemente, foi informado um CPF inválido</h3>
+
+    <footer>
+      <a ng-href="#3" ng-click="setData()">⇐</a>
+      <!-- &#8656; -->
+    </footer>
+
+  </section>
+</form>

@@ -1,0 +1,13 @@
+<div id="login">
+  <form id="frm" name="frm" method="post" ng-submit="enter()">
+
+    <label for="u">Usu&aacute;rio</label>
+      <input required autocomplete="on" autofocus="true" type="text" ng-model="login.user"/>
+
+    <label for="p">Senha</label>
+      <input required autocomplete="off" type="password" ng-model="login.pass"/>
+
+
+    <button type="submit" ng-disabled="!frm.$valid">Enviar</button>
+  </form>
+</div>

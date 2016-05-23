@@ -1,0 +1,28 @@
+{
+  "name": "angular-datetime-lite",
+  "version": "1.0.0",
+  "description": "O datetime picker lite mais completo que me veio à cabeça",
+  "main": "index.js",
+  "keywords": [
+    "angularjs",
+    "date",
+    "datetime",
+    "directive",
+    "UI"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ivomarsan",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "*",
+    "gulp": "*",
+    "gulp-jshint": "^2.0.0",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "*"
+  },
+  "dependencies": {
+    "angular": "*"
+  }
+}

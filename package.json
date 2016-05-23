@@ -1,0 +1,64 @@
+{
+  "name": "reca",
+  "version": "1.0.0",
+  "description": "Um sistema de reserva de veículos para o IFCE",
+  "author": "Ivomar Santos <contato@ivomarsantos.com>",
+  "keywords": [
+    "reca",
+    "ivomarsan"
+  ],
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/ivomarsan/reca",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ivomarsan/reca.git"
+  },
+  "dependencies": {
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-resource": "latest",
+    "angular-input-masks": "latest",
+    "ejs": "latest",
+    "path": "latest",
+    "express": "latest",
+    "namesify": "latest",
+    "mongoose": "latest",
+    "html-pdf": "latest",
+    "nodemailer": "latest",
+    "body-parser": "latest",
+    "compression": "latest",
+    "express-load": "latest",
+    "method-override": "latest"
+  },
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-size": "latest",
+    "gulp-clean": "latest",
+    "gulp-rename": "latest",
+    "gulp-jshint": "latest",
+    "gulp-uglify": "latest",
+    "gulp-concat": "latest",
+    "gulp-cssmin": "latest",
+    "gulp-stylus": "latest",
+    "gulp-inject": "latest",
+    "gulp-jasmine": "latest",
+    "gulp-nodemon": "latest",
+
+    "gulp-jasmine-browser": "latest",
+    "gulp-browserify": "latest",
+    "browserify": "latest",
+
+    "gulp-angular-templatecache": "latest",
+    "gulp-strip-css-comments": "latest",
+    "gulp-html-minifier": "latest",
+    "gulp-ng-annotate": "latest",
+    "browser-sync": "latest",
+    "nib": "latest",
+    "jshint": "latest",
+    "jshint-stylish": "latest"
+  }
+}
