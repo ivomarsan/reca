@@ -223,13 +223,13 @@ function($compile, $filter, dateFilter, DatetimeLite) {
     };
     scope.set.day = (evt) => {
       let target = angular.element(evt.target)[0];
-      scope.updateNgModel(scope.selectedDay, parseInt(target.innerHTML));
+      scope.updateNgModel(scope.selectedDay, parseInt(target.innerHTML).toString());
       scope.useView('hour');
     };
     scope.set.hour = (evt) => {
       let target = angular.element(evt.target)[0]
         , value = (target.innerHTML).split(':');
-      scope.updateNgModel(scope.selectedDay, scope.selectedHour, parseInt(value[1]));
+      scope.updateNgModel(scope.selectedDay, scope.selectedHour, value[1]);
       ctrl.closeDatetimeLite();
     };
 

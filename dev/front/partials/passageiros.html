@@ -31,16 +31,16 @@
         <tbody>
           <tr ng-repeat="i in [] | range:pedido.REQ_PASSAGEIROS">
             <td>
-              <input required autocomplete="off" id="NOME" name="NOME" type="text" maxlength="50" pattern="[A-Za-zÀ-ú\s]+$" ng-model="passageiros.NOME[i]" ng-init="passageiros.NOME[0] = pedido.REQ_SOLICITANTE">
+              <input required autocomplete="off" id="NOME" name="NOME" type="text" maxlength="50" pattern="[A-Za-zÀ-ú\s]+$" ng-model="passageiros.NOME[i]">
             </td>
             <td>
-              <input required autocomplete="off" name="MATRICULA" type="number" min="0" id="MATRICULA" pattern="[0-9]+$" ng-model="passageiros.MATRICULA[i]" ng-init="passageiros.MATRICULA[0] = pedido.REQ_MATRICULA"/>
+              <input required autocomplete="off" name="MATRICULA" type="number" min="0" id="MATRICULA" pattern="[0-9]+$" ng-model="passageiros.MATRICULA[i]"/>
             </td>
             <td>
               <input required autocomplete="off" name="CPF" type="text" id="CPF" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" ui-br-cpf-mask ng-model="passageiros.CPF[i]"/>
             </td>
             <td>
-              <input required autocomplete="off" name="CELULAR" type="text" id="CELULAR" maxlength="15" pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}$" ui-br-phone-number ng-model="passageiros.CELULAR[i]" ng-init="passageiros.CELULAR[0] = pedido.REQ_CELULAR"/>
+              <input required autocomplete="off" name="CELULAR" type="text" id="CELULAR" maxlength="15" pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}$" ui-br-phone-number ng-model="passageiros.CELULAR[i]"/>
             </td>
           </tr>
         </tbody>
@@ -50,7 +50,11 @@
     <input id="captcha" name="captcha" type="text" style="display: none" />
     <br>
     <button class="button" type="submit" ng-hide="!frm.$valid">Enviar</button>
+    <h3 ng-show="frm.NOME.$invalid && frm.NOME.$dirty">Aparentemente, foi informado um nome inválido</h3>
+    <h3 ng-show="frm.MATRICULA.$invalid && frm.MATRICULA.$dirty">Aparentemente, foi informado uma matrícula inválida</h3>
     <h3 ng-show="frm.CPF.$invalid && frm.CPF.$dirty">Aparentemente, foi informado um CPF inválido</h3>
+    <h3 ng-show="frm.CELULAR.$invalid && frm.CELULAR.$dirty">Aparentemente, foi informado um celular inválido</h3>
+
 
     <footer>
       <a ng-href="#3" ng-click="setData()">⇐</a>

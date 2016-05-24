@@ -52,10 +52,12 @@ function($scope, $http, $routeParams, Scopes, Pedido) {
 // //////
   $scope.setData = () => {
     Scopes.set('reca', $scope.pedido);
+    Scopes.set('passageiros', $scope.passageiros);
   };
 
   $scope.getData = () => {
     $scope.pedido = Scopes.get('reca') || {};
+    $scope.passageiros = Scopes.get('passageiros') || {};
   };
 
   $scope.getData();
