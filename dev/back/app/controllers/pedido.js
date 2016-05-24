@@ -182,7 +182,7 @@ module.exports = (app) => {
         ( (data) => {
             log.ok('API: SetPedido');
             console.log(' -> _id:', data._id);
-            //console.log(data);
+            console.log(data);
             res.status(201).json(data);
           }
         , (err) => {

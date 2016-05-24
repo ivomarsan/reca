@@ -9,7 +9,7 @@ var express = require('express')
 module.exports = function() {
   var app = express();
 
-  app.set('port', 5000);
+  app.set('port', 8080);
   app.use(path);
   app.set('view engine', 'ejs');
   app.set('views', './'+dir+'/views');

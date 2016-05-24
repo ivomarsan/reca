@@ -12,7 +12,7 @@ module.exports = function() {
       , required: true
       }
     , CPF:
-      { type: Number
+      { type: String
       , required: true
       }
     , CELULAR:
