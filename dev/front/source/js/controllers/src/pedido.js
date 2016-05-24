@@ -31,12 +31,11 @@ function($scope, $http, $routeParams, Scopes, Pedido) {
     for(let i=0; i<count; i++)
       $scope.pedido.passageiros.push(
         { NOME: _o_.NOME[i]
-        , MATRICULA: +_o_.MATRICULA[i]
-        , CPF: +_o_.CPF[i]
-        , CELULAR: +_o_.CELULAR[i]
+        , MATRICULA: _o_.MATRICULA[i]
+        , CPF: _o_.CPF[i]
+        , CELULAR: _o_.CELULAR[i]
         }
       );
-
 
     $http.post('/pedido', $scope.pedido)
       .success(() => {

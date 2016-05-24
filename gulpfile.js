@@ -212,7 +212,7 @@ gulp.task('html', function() {
 
 gulp.task('demon', ['build'], function() {
   browserSync.init(null, {
-		proxy: 'http://localhost:8080',
+		proxy: 'http://localhost:5000',
     files: ['public/**/*.*'],
     port: 8080,
 	});
