@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-module.exports = function() {
+module.exports = () => {
 
   const passageiros = mongoose.Schema(
     { NOME:

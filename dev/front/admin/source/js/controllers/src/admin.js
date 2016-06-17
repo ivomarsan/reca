@@ -26,7 +26,7 @@ function($scope, $http, Login, Pedido) {
       pedido.justificativa = justificativa;
     pedido.status = status;
 
-    $http.post('/pedido', pedido)
+    $http.post('/reca/pedido', pedido)
       .success(() => {
         console.log('Status Alterado com Sucesso');
         getPedidos();
@@ -41,7 +41,7 @@ function($scope, $http, Login, Pedido) {
   const init = () => {
 // Checa se o Login foi Feito corretamente
     if( Login.check() === false )
-      window.location.href = '/admin/#/login';
+      window.location.href = '/reca/admin/#/login';
 // Se Sim :)
     getPedidos();
   };

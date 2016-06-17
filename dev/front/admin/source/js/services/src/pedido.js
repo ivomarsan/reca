@@ -1,8 +1,8 @@
 module.exports = ['$resource',
-function($resource) {
+($resource) => {
   'use strict';
 
   // Rota do lado servidor
-	return $resource('/pedido/:id');
+	return $resource('/reca/pedido/:id');
 
 }];

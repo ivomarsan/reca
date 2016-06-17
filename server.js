@@ -1,12 +1,14 @@
-var http = require('http')
-  , app = require('./dev/back/config/express')()
-  , port = app.get('port')
+const app = require('./dev/back/config/express')()
+    , mongo = require('./dev/back/config/database.js')
+    , port = app.get('port')
   ;
 
-require('./dev/back/config/database.js')('mongodb://localhost/reca');
+process.on('uncaughtException', err => console.log(err) );
 
-http.createServer(app).listen(port, function(){
+const server = app.listen(port, () => {
   console.log('\n******************************************************');
-  console.log('\tExpress Server escutando na porta', port);
+  console.log('\tExpress Server escutando na porta', server.address().port);
   console.log('******************************************************\n');
+
+  mongo('mongodb://localhost/reca');
 });
