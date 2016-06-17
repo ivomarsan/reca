@@ -41,7 +41,7 @@ function($scope, $http, $routeParams, Scopes, Pedido) {
       .success(() => {
         // Limpa o Formulário
         $scope.pedido = new Pedido();
-        window.location.href = '/reca/ok';
+        window.location.href = '/reca/ok/';
       })
       .error(err => console.error('Não foi possível salvar o pedido\nErro:', err) )
     ;
