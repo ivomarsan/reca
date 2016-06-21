@@ -1,25 +1,25 @@
-module.exports = ['$scope', '$http', '$routeParams', 'Scopes', 'Pedido',
-function($scope, $http, $routeParams, Scopes, Pedido) {
+module.exports = ['$scope', '$http', '$routeParams', 'Scopes',
+function($scope, $http, $routeParams, Scopes) {
   'use strict';
 
-  if($routeParams._id)
-    getPedido();
-  else
-    $scope.pedido = new Pedido();
+  // if($routeParams._id)
+  //   getPedido();
+  // else
+    $scope.pedido = {};
 
   $scope.passageiros = {};
 
-  function getPedido() {
-    Pedido.get({ id: $routeParams._id }
-    , (data) => {
-        $scope.pedido = data;
-      }
-    , (err) => {
-        console.error('Não foi possível obter o pedido');
-        console.error(err);
-      }
-    );
-  }
+  // function getPedido() {
+  //   Pedido.get({ id: $routeParams._id }
+  //   , (data) => {
+  //       $scope.pedido = data;
+  //     }
+  //   , (err) => {
+  //       console.error('Não foi possível obter o pedido');
+  //       console.error(err);
+  //     }
+  //   );
+  // }
 
   $scope.sendData = () => {
     // Insere os Passageiros no Objeto $scope.pedido
@@ -37,11 +37,11 @@ function($scope, $http, $routeParams, Scopes, Pedido) {
         }
       );
 
-    $http.post('/reca/pedido', $scope.pedido)
+    $http.post('http://localhost/reca/api/pedido/', $scope.pedido)
       .success(() => {
         // Limpa o Formulário
         $scope.pedido = new Pedido();
-        window.location.href = '/reca/ok/';
+        window.location.href = '/ok';
       })
       .error(err => console.error('Não foi possível salvar o pedido\nErro:', err) )
     ;

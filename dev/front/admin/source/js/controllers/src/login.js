@@ -10,7 +10,7 @@ function($scope, Login) {
     Login.do($scope.login);
 
     if( Login.check() === true )
-      window.location.href = '/reca/admin/#/';
+      window.location.href = '/admin/#/';
   };
 
 }];

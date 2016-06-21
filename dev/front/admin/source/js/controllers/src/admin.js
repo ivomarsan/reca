@@ -1,22 +1,23 @@
-module.exports = ['$scope', '$http', 'Login', 'Pedido',
-function($scope, $http, Login, Pedido) {
+module.exports = ['$scope', '$http', 'Login',
+function($scope, $http, Login) {
   'use strict';
 
   $scope.pedidos = [];
   $scope.qtd = 0;
 
   const getPedidos = () => {
-    Pedido.query(
-      (data) => {
+    $http(
+      { method: 'GET'
+      , url: 'http://localhost/reca/api/pedido/'
+      , headers: {'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1NzY5OTBmYTM4Mzk1MzQ4MTQ3NjYxMjEiLCJleHAiOjE0NjcxNDQ4NTQyODl9._DQnDGGgsK3Y5RfHUanlN-PN-4LzmIz0w2UzP944YYc'}
+      })
+      .success((data) => {
         const array = data.filter(ped => ped.status === 0);
         $scope.pedidos = array;
         $scope.qtd = array.length;
-      },
-      (err) => {
-        console.error('Não foi possível obter a lista de Pedidos');
-        console.error(err);
-      }
-    );
+      })
+      .error(err => console.error('Não foi possível obter a lista de Pedidos\nErro:', err) )
+    ;
   };
 
   $scope.sendStatus = (status, pedidoId, justificativa) => {
@@ -26,7 +27,7 @@ function($scope, $http, Login, Pedido) {
       pedido.justificativa = justificativa;
     pedido.status = status;
 
-    $http.post('/reca/pedido', pedido)
+    $http.post('http://localhost/reca/api/pedido/', pedido)
       .success(() => {
         console.log('Status Alterado com Sucesso');
         getPedidos();
@@ -41,7 +42,7 @@ function($scope, $http, Login, Pedido) {
   const init = () => {
 // Checa se o Login foi Feito corretamente
     if( Login.check() === false )
-      window.location.href = '/reca/admin/#/login';
+      window.location.href = '/admin/#/login';
 // Se Sim :)
     getPedidos();
   };

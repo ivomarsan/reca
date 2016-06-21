@@ -1,24 +1,25 @@
-module.exports = ['$http',
-($http) => {
+module.exports = function() {
   'use strict';
 
   let status = false;
 
+  const login = {
+    u: 'rep',
+    p: 'laraifce',
+  };
+  login.user = (u) => login.u === u;
+  login.pass = (p) => login.p === p;
+
   return {
-    do(obj) {
-      $http.post('/reca/authenticate', { user: obj.user, pass: obj.pass })
-        .success((data) => {
-          if(data.success)
-            status = true;
-          else
-            console.error(data.message);
-        })
-        .error(err => status = false )
-      ;
+    do: function(obj) {
+      if( login.user(obj.user) && login.pass(obj.pass) )
+        status = true;
+      else
+        status = false;
     },
-    check() {
+    check: function() {
       return status;
     }
   };
 
-}];
+};

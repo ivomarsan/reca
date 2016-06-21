@@ -1,9 +1,7 @@
 var app = require('angular').module('myApp');
 
-app.config(['$routeProvider', '$compileProvider', function($routeProvider, $compileProvider) {
+app.config(['$routeProvider', function($routeProvider) {
   'use strict';
-
-  $compileProvider.debugInfoEnabled(false);
 
   $routeProvider
     .when('/1',

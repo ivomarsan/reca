@@ -1,10 +1,8 @@
 let app = angular.module('admin');
 
-app.config(['$routeProvider', '$compileProvider', function($routeProvider, $compileProvider) {
+app.config(['$routeProvider', function($routeProvider) {
   'use strict';
 
-  $compileProvider.debugInfoEnabled(false);
-  
   $routeProvider
     .when('/',
       { templateUrl: 'admin.html'

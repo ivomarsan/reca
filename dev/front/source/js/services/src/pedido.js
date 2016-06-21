@@ -3,6 +3,6 @@ function($resource) {
   'use strict';
 
   // Rota do lado servidor
-	return $resource('/reca/pedido/');
+	return $resource('/reca/api/pedido/');
 
 }];
