@@ -22,16 +22,7 @@
     "angular-route": "latest",
     "angular-resource": "latest",
     "angular-input-masks": "latest",
-    "path": "latest",
-    "express": "latest",
-    "namesify": "latest",
-    "mongoose": "latest",
-    "html-pdf": "latest",
-    "nodemailer": "latest",
-    "body-parser": "latest",
-    "compression": "latest",
-    "express-load": "latest",
-    "method-override": "latest"
+    "namesify": "latest"
   },
   "devDependencies": {
     "gulp": "latest",

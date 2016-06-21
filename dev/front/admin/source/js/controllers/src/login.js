@@ -7,10 +7,12 @@ function($scope, Login) {
 // Fazer Login
 // //////
   $scope.enter = () => {
-    Login.do($scope.login);
+    Login.do($scope.login, (ok) => {
+      if(ok) window.location.href = '/admin/#/';
+    });
 
-    if( Login.check() === true )
-      window.location.href = '/admin/#/';
+    // if( Login.check() === true )
+    //   window.location.href = '/admin/#/';
   };
 
 }];
