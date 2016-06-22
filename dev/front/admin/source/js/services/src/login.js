@@ -3,15 +3,16 @@ function($http) {
   'use strict';
 
   let status = false;
+  let token = '';
 
   return {
     do: function(obj, cb) {
       if( !obj.user || !obj.pass )
         status = false;
       else
-        $http.post('http://localhost/reca/api/auth/', obj)
+        $http.post('/reca/api/auth/', obj)
           .success((data) => {
-            console.log(data);
+            token = data.token;
             status = true;
             cb(status);
           })
@@ -20,6 +21,9 @@ function($http) {
     },
     check: function() {
       return status;
+    },
+    getToken: function() {
+      return token;
     }
   };
 

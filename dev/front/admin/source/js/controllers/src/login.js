@@ -8,7 +8,7 @@ function($scope, Login) {
 // //////
   $scope.enter = () => {
     Login.do($scope.login, (ok) => {
-      if(ok) window.location.href = '/admin/#/';
+      if(ok) window.location.href = '/reca/admin/#/';
     });
 
     // if( Login.check() === true )

@@ -8,8 +8,8 @@ function($scope, $http, Login) {
   const getPedidos = () => {
     $http(
       { method: 'GET'
-      , url: 'http://localhost/reca/api/pedido/'
-      , headers: {'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1NzY5OTBmYTM4Mzk1MzQ4MTQ3NjYxMjEiLCJleHAiOjE0NjcxNDQ4NTQyODl9._DQnDGGgsK3Y5RfHUanlN-PN-4LzmIz0w2UzP944YYc'}
+      , url: '/reca/api/pedido/'
+      , headers: {'Authorization': Login.getToken() }
       })
       .success((data) => {
         const array = data.filter(ped => ped.status === 0);
@@ -27,7 +27,7 @@ function($scope, $http, Login) {
       pedido.justificativa = justificativa;
     pedido.status = status;
 
-    $http.post('http://localhost/reca/api/pedido/', pedido)
+    $http.post('/reca/api/pedido/', pedido)
       .success(() => {
         console.log('Status Alterado com Sucesso');
         getPedidos();
@@ -42,7 +42,7 @@ function($scope, $http, Login) {
   const init = () => {
 // Checa se o Login foi Feito corretamente
     if( Login.check() === false )
-      window.location.href = '/admin/#/login';
+      window.location.href = '/reca/admin/#/login';
 // Se Sim :)
     getPedidos();
   };

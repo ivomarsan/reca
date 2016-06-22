@@ -37,7 +37,7 @@ function($scope, $http, $routeParams, Scopes) {
         }
       );
 
-    $http.post('http://localhost/reca/api/pedido/', $scope.pedido)
+    $http.post('/reca/api/pedido/', $scope.pedido)
       .success(() => {
         // Limpa o Formulário
         $scope.pedido = new Pedido();

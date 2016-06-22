@@ -83,13 +83,13 @@ gulp.task('adminHtml', function() {
   ;
   gulp.src(path.adminHtml)
       .pipe(inject(gulp.src('./public/admin/js/*.js', {read:false}),
-        { name:'scripts',   relative:false, ignorePath: 'public'//, addPrefix: 'reca'
+        { name:'scripts',   relative:false, ignorePath: 'public', addPrefix: 'reca'
       }))
       .pipe(inject(gulp.src('./public/admin/css/*.css', {read:false}),
-        { name:'styles',    relative:false, ignorePath: 'public'//, addPrefix: 'reca'
+        { name:'styles',    relative:false, ignorePath: 'public', addPrefix: 'reca'
       }))
     // Minifica o HTML
-      //.pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+      .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
     // Salva o Mutante
       .pipe(gulp.dest('./public/admin'))
   ;
@@ -197,10 +197,10 @@ gulp.task('html', function() {
   ;
   gulp.src(path.html)
       .pipe(inject(gulp.src('./public/js/*.js', {read:false}),
-        { name:'scripts',   relative:false, ignorePath: 'public'//, addPrefix: 'reca'
+        { name:'scripts',   relative:false, ignorePath: 'public', addPrefix: 'reca'
       }))
       .pipe(inject(gulp.src('./public/css/*.css', {read:false}),
-        { name:'styles',    relative:false, ignorePath: 'public'//, addPrefix: 'reca'
+        { name:'styles',    relative:false, ignorePath: 'public', addPrefix: 'reca'
       }))
     // Minifica o HTML
       //.pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
